@@ -1,147 +1,548 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0f0f13" />
   <title>Applied Engineering & AI · Beaver Works Portfolio</title>
-  <meta name="description" content="A polished, modern portfolio template for MIT Beaver Works students in the Applied Engineering & AI track." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <meta
+    name="description"
+    content="A polished, modern portfolio template for MIT Beaver Works students in the Applied Engineering & AI track."
+  />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    :root{
+    :root {
       --bg: #0b0c10;
       --panel: #12131a;
+      --panel-2: #171923;
       --muted: #8a8fa3;
       --text: #e6e8f2;
-      --brand: #c61a1a; /* MIT red-ish */
-      --brand-2: #7f2aff; /* accent */
-      --ring: 0 0 0 2px rgba(198,26,26,.25);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --glass: rgba(255,255,255,.06);
-      --glass-brd: rgba(255,255,255,.15);
+      --brand: #c61a1a;
+      --brand-2: #7f2aff;
+      --success: #19c37d;
+      --ring: 0 0 0 3px rgba(198, 26, 26, 0.22);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --glass: rgba(255, 255, 255, 0.06);
+      --glass-brd: rgba(255, 255, 255, 0.15);
+      --maxw: 1100px;
+      --radius: 18px;
+      --radius-sm: 12px;
+      --transition: 180ms ease;
     }
-    [data-theme="light"]{
+
+    [data-theme="light"] {
       --bg: #f7f7fb;
       --panel: #ffffff;
+      --panel-2: #f2f4f8;
       --muted: #4b5563;
       --text: #0f172a;
       --brand: #c61a1a;
       --brand-2: #5b21b6;
-      --ring: 0 0 0 2px rgba(198,26,26,.25);
-      --shadow: 0 8px 24px rgba(2,6,23,.08);
-      --glass: rgba(0,0,0,.03);
-      --glass-brd: rgba(0,0,0,.08);
+      --ring: 0 0 0 3px rgba(198, 26, 26, 0.2);
+      --shadow: 0 8px 24px rgba(2, 6, 23, 0.08);
+      --glass: rgba(0, 0, 0, 0.03);
+      --glass-brd: rgba(0, 0, 0, 0.08);
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: radial-gradient(1200px 800px at 80% -10%, rgba(198,26,26,.12), transparent 60%),
-                  radial-gradient(900px 600px at 0% 0%, rgba(127,42,255,.10), transparent 40%),
-                  var(--bg);
-      color:var(--text); line-height:1.6; letter-spacing:.2px;
-    }
-    a{color:inherit}
-    .container{max-width:1100px; margin:0 auto; padding:24px}
-
-    /* NAV */
-    .nav{
-      position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px);
-      background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,0));
-      border-bottom:1px solid var(--glass-brd);
-    }
-    .nav-wrap{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 24px}
-    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
-    .logo{
-      width:38px; height:38px; border-radius:12px; display:grid; place-items:center; font-weight:900;
-      background: conic-gradient(from 210deg, var(--brand), var(--brand-2)); color:#fff; box-shadow:var(--shadow);
-    }
-    .title{font-size:15px; font-weight:700; letter-spacing:.4px}
-    .subtitle{font-size:12px; color:var(--muted); margin-top:-6px}
-    .nav-actions{display:flex; gap:10px; align-items:center}
-    .btn{border:1px solid var(--glass-brd); background:var(--glass); color:var(--text);
-         padding:10px 14px; border-radius:12px; cursor:pointer; transition:transform .1s ease, background .2s ease, border-color .2s ease}
-    .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.3)}
-    .btn-primary{background:linear-gradient(180deg, rgba(198,26,26,.9), rgba(198,26,26,.7)); border-color:transparent}
-
-    /* HERO */
-    .hero{padding:72px 24px 20px}
-    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center}
-    .badge{display:inline-flex; align-items:center; gap:8px; font-weight:600; color:#fff; background:linear-gradient(90deg, var(--brand), var(--brand-2));
-      border-radius:999px; padding:8px 12px; box-shadow:var(--shadow); font-size:12px; letter-spacing:.35px}
-    .h1{font-size: clamp(28px, 4vw, 44px); line-height:1.1; margin:14px 0 10px; font-weight:900}
-    .h1 span.gradient{background:linear-gradient(90deg, var(--brand), var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent}
-    .kicker{color:var(--muted); max-width:60ch}
-    .cta{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
-    .hero-card{border:1px solid var(--glass-brd); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border-radius:18px; padding:16px; box-shadow:var(--shadow)}
-    .hero-list{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:12px}
-    .hero-item{border:1px dashed var(--glass-brd); border-radius:14px; padding:12px; background:var(--glass)}
-    .mini{font-size:12px; color:var(--muted)}
-
-    /* SECTIONS */
-    section{padding:32px 24px}
-    .section-title{font-size:14px; letter-spacing:.25em; color:var(--muted); text-transform:uppercase; font-weight:700}
-    .section-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px}
-    .section-head h2{margin:4px 0 0; font-size:24px}
-
-    /* ABOUT */
-    .about{
-      display:grid; grid-template-columns:.8fr 1.2fr; gap:24px; align-items:start
-    }
-    .card{border:1px solid var(--glass-brd); background:var(--panel); border-radius:16px; padding:18px; box-shadow:var(--shadow)}
-    .profile{
-      width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:14px; border:1px solid var(--glass-brd);
+    * {
+      box-sizing: border-box;
     }
 
-    /* PROJECTS */
-    .filters{display:flex; gap:8px; flex-wrap:wrap}
-    .chip{padding:8px 12px; border-radius:999px; border:1px solid var(--glass-brd); background:var(--glass); cursor:pointer; font-size:13px}
-    .chip.active{background:linear-gradient(180deg, rgba(198,26,26,.85), rgba(198,26,26,.65)); border-color:transparent}
-
-    .grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px}
-    .proj{
-      position:relative; overflow:hidden; border-radius:16px; border:1px solid var(--glass-brd);
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      box-shadow:var(--shadow); transition:transform .2s ease, border-color .2s ease
+    html {
+      scroll-behavior: smooth;
     }
-    .proj:hover{transform:translateY(-3px); border-color:rgba(255,255,255,.28)}
-    .thumb{height:160px; background:linear-gradient(135deg, rgba(198,26,26,.22), rgba(127,42,255,.22)); display:grid; place-items:center; font-weight:800}
-    .proj-body{padding:14px}
-    .tags{display:flex; gap:8px; flex-wrap:wrap; margin:6px 0}
-    .tag{font-size:11px; padding:4px 8px; border-radius:999px; background:rgba(255,255,255,.08); border:1px solid var(--glass-brd)}
-    .proj a.btn{display:inline-flex; gap:8px; align-items:center}
 
-    /* OUTPUTS */
-    .links{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px}
-    .link-card{border:1px solid var(--glass-brd); background:var(--glass); border-radius:14px; padding:14px}
-
-    /* FOOTER */
-    footer{padding:32px 24px; color:var(--muted); border-top:1px solid var(--glass-brd); margin-top:24px}
-
-    /* UTIL */
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .fade-in{opacity:0; transform:translateY(8px); animation:fade .6s ease forwards}
-    @keyframes fade{to{opacity:1; transform:none}}
-
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr}
-      .about{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr 1fr}
-      .links{grid-template-columns:1fr 1fr}
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
     }
-    @media (max-width: 640px){
-      .grid{grid-template-columns:1fr}
-      .links{grid-template-columns:1fr}
-      .nav-wrap{flex-wrap:wrap}
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:
+        radial-gradient(1200px 800px at 80% -10%, rgba(198, 26, 26, 0.12), transparent 60%),
+        radial-gradient(900px 600px at 0% 0%, rgba(127, 42, 255, 0.1), transparent 40%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      letter-spacing: 0.2px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -48px;
+      left: 16px;
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--glass-brd);
+      border-radius: 10px;
+      padding: 10px 14px;
+      z-index: 999;
+      box-shadow: var(--shadow);
+    }
+
+    .skip-link:focus {
+      top: 16px;
+      outline: none;
+      box-shadow: var(--ring);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: saturate(1.2) blur(10px);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.05));
+      border-bottom: 1px solid var(--glass-brd);
+    }
+
+    .nav.scrolled {
+      background: rgba(11, 12, 16, 0.78);
+    }
+
+    [data-theme="light"] .nav.scrolled {
+      background: rgba(247, 247, 251, 0.88);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      background: conic-gradient(from 210deg, var(--brand), var(--brand-2));
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: -4px;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn,
+    .chip {
+      border: 1px solid var(--glass-brd);
+      background: var(--glass);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition),
+        opacity var(--transition);
+      font: inherit;
+    }
+
+    .btn:hover,
+    .chip:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .btn:focus-visible,
+    .chip:focus-visible,
+    a:focus-visible {
+      outline: none;
+      box-shadow: var(--ring);
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, rgba(198, 26, 26, 0.95), rgba(198, 26, 26, 0.75));
+      border-color: transparent;
+      color: #fff;
+    }
+
+    .btn-disabled {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero {
+      padding: 72px 24px 20px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(90deg, var(--brand), var(--brand-2));
+      border-radius: 999px;
+      padding: 8px 12px;
+      box-shadow: var(--shadow);
+      font-size: 12px;
+      letter-spacing: 0.35px;
+    }
+
+    .h1 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.08;
+      margin: 16px 0 12px;
+      font-weight: 900;
+      max-width: 13ch;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, var(--brand), var(--brand-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      min-height: 1.2em;
+      display: inline-block;
+    }
+
+    .kicker {
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .cta {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card,
+    .card,
+    .proj,
+    .link-card {
+      border: 1px solid var(--glass-brd);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .hero-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .hero-item {
+      border: 1px dashed var(--glass-brd);
+      border-radius: 14px;
+      padding: 12px;
+      background: var(--glass);
+    }
+
+    .mini {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    section {
+      padding: 32px 24px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      letter-spacing: 0.25em;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      margin: 4px 0 0;
+      font-size: 24px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--panel);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .profile {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--glass-brd);
+      background: var(--panel-2);
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .skill-pill {
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--glass);
+      border: 1px solid var(--glass-brd);
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    .chip.active {
+      background: linear-gradient(180deg, rgba(198, 26, 26, 0.9), rgba(198, 26, 26, 0.7));
+      border-color: transparent;
+      color: #fff;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .proj {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .proj:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .thumb {
+      height: 160px;
+      background: linear-gradient(135deg, rgba(198, 26, 26, 0.22), rgba(127, 42, 255, 0.22));
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 40px;
+    }
+
+    .proj-body {
+      padding: 14px;
+    }
+
+    .proj-body h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    .proj-body p {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 6px 0 12px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--glass-brd);
+    }
+
+    .links {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .link-card {
+      background: var(--glass);
+      border-radius: 14px;
+      padding: 14px;
+      transition:
+        transform var(--transition),
+        border-color var(--transition);
+    }
+
+    .link-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .link-card strong {
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      padding: 32px 24px;
+      color: var(--muted);
+      border-top: 1px solid var(--glass-brd);
+      margin-top: 24px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(8px);
+      animation: fade 0.6s ease forwards;
+    }
+
+    @keyframes fade {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .links {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .grid,
+      .links,
+      .hero-list {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-wrap {
+        flex-wrap: wrap;
+      }
+
+      .h1 {
+        max-width: none;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- NAV -->
-  <nav class="nav">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="nav" id="siteNav">
     <div class="nav-wrap container">
       <a class="brand" href="#top" aria-label="Home">
         <div class="logo" aria-hidden="true">AI</div>
@@ -150,255 +551,463 @@
           <div class="subtitle">Applied Engineering & AI</div>
         </div>
       </a>
+
       <div class="nav-actions">
-        <button class="btn" id="themeToggle" aria-label="Toggle theme">🌗 Theme</button>
+        <button class="btn" id="themeToggle" type="button" aria-label="Toggle theme">
+          🌗 Theme
+        </button>
         <a class="btn btn-primary" href="#projects">🚀 Projects</a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header id="top" class="hero container">
-    <div class="hero-grid">
-      <div>
-        <span class="badge">⚡ Student Portfolio Template</span>
-        <h1 class="h1">
+  <main id="main">
+    <header id="top" class="hero container">
+      <div class="hero-grid">
+        <div>
+          <span class="badge">⚡ Student Portfolio Template</span>
+          <h1 class="h1">
+            Hi, I'm <span id="name">Tomas</span> — building
+            <span class="gradient" id="typewriter" aria-live="polite"></span>
+          </h1>
 
-          Hi, I'm <span id="name">Tomas </span> — building
-          <span class="gradient" id="typewriter" aria-live="polite"></span>
-        </h1>
-        <p class="kicker">Welcome to my Beaver Works portfolio. Here you’ll find my projects, labs, and hands‑on outputs from the <strong>Applied Engineering & AI</strong> track — from Arduino builds and data science notebooks to web apps and ML experiments.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="#about">📘 About</a>
-          <a class="btn" href="#links">🔗 Outputs</a>
-          <a class="btn" href="#projects">🧪 Experiments</a>
+          <p class="kicker">
+            Welcome to my Beaver Works portfolio. Here you’ll find my projects, labs,
+            and hands-on outputs from the <strong>Applied Engineering & AI</strong> track
+            — from Arduino builds and data science notebooks to web apps and ML experiments.
+          </p>
+
+          <div class="cta">
+            <a class="btn btn-primary" href="#about">📘 About</a>
+            <a class="btn" href="#links">🔗 Outputs</a>
+            <a class="btn" href="#projects">🧪 Experiments</a>
+          </div>
+        </div>
+
+        <div class="hero-card fade-in" style="animation-delay: .15s">
+          <div class="mini">Starter checklist</div>
+          <div class="hero-list">
+            <div class="hero-item">✅ GitHub profile set up</div>
+            <div class="hero-item">✅ Resume PDF exported</div>
+            <div class="hero-item">✅ Tinkercad circuit shared</div>
+            <div class="hero-item">✅ Colab notebook published</div>
+          </div>
+          <div class="mini" style="margin-top: 10px;">
+            Tip: replace placeholders below to publish in around 10 minutes.
+          </div>
         </div>
       </div>
-      <div class="hero-card fade-in" style="animation-delay:.15s">
-        <div class="mini">Starter checklist</div>
-        <div class="hero-list">
-          <div class="hero-item">✅ GitHub profile set up</div>
-          <div class="hero-item">✅ Resume PDF exported</div>
-          <div class="hero-item">✅ Tinkercad circuit shared</div>
-          <div class="hero-item">✅ Colab notebook published</div>
+    </header>
+
+    <section id="about" class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-title">About</div>
+          <h2>Who I Am</h2>
         </div>
-        <div class="mini" style="margin-top:10px">Tip: replace placeholders below to publish in ~10 minutes.</div>
+        <a class="btn" href="#links">View Outputs →</a>
       </div>
-    </div>
-  </header>
 
-  <!-- ABOUT -->
-  <section id="about" class="container">
-    <div class="section-head">
-      <div>
-        <div class="section-title">About</div>
-        <h2>Who I Am</h2>
-      </div>
-      <a class="btn" href="#links">View Outputs →</a>
-    </div>
-    <div class="about">
-      <div class="card">
-        <img class="profile" src="profile.jpg" alt="Profile photo of student" />
-        <p class="mini" style="margin-top:10px">Replace <code>profile.jpg</code> with your image.
-      </div>
-      <div class="card">
-        <p>I'm a Beaver Works student focusing on <strong>applied engineering</strong> and <strong>AI</strong>. I enjoy building things end‑to‑end: hardware prototypes, interactive dashboards, and machine learning demos. This site showcases a few of my favorite projects and learning artifacts.</p>
-        <ul>
-          <li>🧰 Skills: Python, JavaScript, Arduino, Data Viz, Git</li>
-          <li>🧪 Interests: Edge AI, Robotics, Earth Data, Health Tech</li>
-          <li>🎯 Goal this term: Ship 3 polished project demos</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+      <div class="about">
+        <div class="card">
+          <img
+            class="profile"
+            id="profileImage"
+            src="profile.jpg"
+            alt="Profile photo of Tomas"
+          />
+          <p class="mini" style="margin-top: 10px;">
+            Replace <code>profile.jpg</code> with your image.
+          </p>
+        </div>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="container">
-    <div class="section-head">
-      <div>
-        <div class="section-title">Projects & Labs</div>
-        <h2>Featured Work</h2>
-      </div>
-      <div class="filters" role="tablist" aria-label="Project filters">
-        <button class="chip active" data-filter="all" role="tab" aria-selected="true">All</button>
-        <button class="chip" data-filter="ai" role="tab">AI/ML</button>
-        <button class="chip" data-filter="hw" role="tab">Arduino/EE</button>
-        <button class="chip" data-filter="web" role="tab">Web</button>
-        <button class="chip" data-filter="data" role="tab">Data</button>
-      </div>
-    </div>
-    <div class="grid" id="projectsGrid" aria-live="polite"></div>
-  </section>
+        <div class="card">
+          <p>
+            I'm a Beaver Works student focusing on <strong>applied engineering</strong>
+            and <strong>AI</strong>. I enjoy building things end-to-end: hardware
+            prototypes, interactive dashboards, and machine learning demos. This site
+            showcases a few of my favorite projects and learning artifacts.
+          </p>
 
-  <!-- OUTPUT LINKS -->
-  <section id="links" class="container">
-    <div class="section-head">
-      <div>
-        <div class="section-title">Outputs</div>
-        <h2>Profiles & Deliverables</h2>
+          <div class="skill-list" aria-label="Skills and interests">
+            <span class="skill-pill">🧰 Python</span>
+            <span class="skill-pill">💻 JavaScript</span>
+            <span class="skill-pill">🔌 Arduino</span>
+            <span class="skill-pill">📈 Data Visualization</span>
+            <span class="skill-pill">🌐 Git & GitHub</span>
+            <span class="skill-pill">🤖 Edge AI</span>
+            <span class="skill-pill">🦾 Robotics</span>
+            <span class="skill-pill">🩺 Health Tech</span>
+          </div>
+
+          <ul>
+            <li>🎯 Goal this term: ship 3 polished project demos</li>
+            <li>🧠 Focus area: engineering systems + practical AI</li>
+            <li>🚀 Favorite format: real prototypes people can test</li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="links">
-      <a class="link-card" href="https://github.com/yourgithub" target="_blank" rel="noopener">
-        <strong>GitHub</strong>
-        <div class="mini">Code repositories & commits</div>
-      </a>
-      <a class="link-card" href="https://deepnote.com/yourprofile" target="_blank" rel="noopener">
-        <strong>Deepnote</strong>
-        <div class="mini">Notebooks & data exploration</div>
-      </a>
-      <a class="link-card" href="https://colab.research.google.com" target="_blank" rel="noopener">
-        <strong>Google Colab</strong>
-        <div class="mini">Interactive ML experiments</div>
-      </a>
-      <a class="link-card" href="https://www.tinkercad.com/" target="_blank" rel="noopener">
-        <strong>Tinkercad</strong>
-        <div class="mini">Circuits & Arduino demos</div>
-      </a>
-      <a class="link-card" href="resume.pdf" target="_blank" rel="noopener">
-        <strong>Resume (PDF)</strong>
-        <div class="mini">One‑page, latest version</div>
-      </a>
-      <a class="link-card" href="mailto:your.email@example.com">
-        <strong>Email</strong>
-        <div class="mini">your.email@example.com</div>
-      </a>
-      <div class="link-card">
-        <strong>Office Hours</strong>
-        <div class="mini">Add your calendar or booking link</div>
+    </section>
+
+    <section id="projects" class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Projects & Labs</div>
+          <h2>Featured Work</h2>
+        </div>
+
+        <div class="filters" role="tablist" aria-label="Project filters">
+          <button class="chip active" data-filter="all" role="tab" aria-selected="true" type="button">
+            All
+          </button>
+          <button class="chip" data-filter="ai" role="tab" aria-selected="false" type="button">
+            AI/ML
+          </button>
+          <button class="chip" data-filter="hw" role="tab" aria-selected="false" type="button">
+            Arduino/EE
+          </button>
+          <button class="chip" data-filter="web" role="tab" aria-selected="false" type="button">
+            Web
+          </button>
+          <button class="chip" data-filter="data" role="tab" aria-selected="false" type="button">
+            Data
+          </button>
+        </div>
       </div>
-      <div class="link-card">
-        <strong>Certificates/Badges</strong>
-        <div class="mini">Link your achievements here</div>
+
+      <div class="grid" id="projectsGrid" aria-live="polite"></div>
+    </section>
+
+    <section id="links" class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Outputs</div>
+          <h2>Profiles & Deliverables</h2>
+        </div>
       </div>
-    </div>
-  </section>
+
+      <div class="links" id="linksGrid"></div>
+    </section>
+  </main>
 
   <footer class="container">
-    <div class="mini">© <span id="year"></span> Beaver Works — Applied Engineering & AI · Built with vanilla HTML/CSS/JS. Customize and publish to GitHub Pages.</div>
+    <div class="mini">
+      © <span id="year"></span> Beaver Works — Applied Engineering & AI · Built with
+      vanilla HTML/CSS/JS. Customize and publish to GitHub Pages.
+    </div>
   </footer>
 
   <script>
-    // Theme Toggle
-    const root = document.documentElement;
-    const themeBtn = document.getElementById('themeToggle');
-    const saved = localStorage.getItem('theme');
-    if(saved){ document.documentElement.setAttribute('data-theme', saved); }
-    themeBtn.addEventListener('click', ()=>{
-      const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-    });
+    const siteConfig = {
+      name: "Tomas",
+      email: "your.email@example.com",
+      profileImage: "profile.jpg",
+      links: [
+        {
+          title: "GitHub",
+          subtitle: "Code repositories & commits",
+          href: "https://github.com/yourgithub"
+        },
+        {
+          title: "Deepnote",
+          subtitle: "Notebooks & data exploration",
+          href: "https://deepnote.com/yourprofile"
+        },
+        {
+          title: "Google Colab",
+          subtitle: "Interactive ML experiments",
+          href: "https://colab.research.google.com"
+        },
+        {
+          title: "Tinkercad",
+          subtitle: "Circuits & Arduino demos",
+          href: "https://www.tinkercad.com/"
+        },
+        {
+          title: "Resume (PDF)",
+          subtitle: "One-page, latest version",
+          href: "resume.pdf"
+        },
+        {
+          title: "Email",
+          subtitle: "your.email@example.com",
+          href: "mailto:your.email@example.com"
+        },
+        {
+          title: "Office Hours",
+          subtitle: "Add your calendar or booking link",
+          href: ""
+        },
+        {
+          title: "Certificates/Badges",
+          subtitle: "Link your achievements here",
+          href: ""
+        }
+      ]
+    };
 
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Typewriter
-    const phrases = [
-      'useful things with code',
-      'Arduino prototypes that blink & think',
-      'ML models that explain themselves',
-      'web apps that feel fast',
-      'data stories that matter'
-    ];
-    let idx = 0, ptr = 0, rev = false;
-    const tw = document.getElementById('typewriter');
-    function tick(){
-      const text = phrases[idx];
-      if(!rev){
-        ptr++;
-        if(ptr === text.length + 6) rev = true;
-      } else {
-        ptr--;
-        if(ptr <= 0){ rev = false; idx = (idx+1) % phrases.length; }
-      }
-      tw.textContent = text.slice(0, Math.max(0, Math.min(ptr, text.length)));
-      setTimeout(tick, rev ? 50 : 80);
-    }
-    tick();
-
-    // Projects Data (edit me!)
     const projects = [
       {
-        title: 'Oil Slick Classifier',
-        desc: 'Satellite imagery (Sentinel‑2) classification mini‑pipeline with data preprocessing & model evaluation.',
-        tags: ['ai','data','web'],
-        link: '#',
-        call: 'Open Notebook',
-        thumb: '🛰️'
+        title: "Oil Slick Classifier",
+        desc: "Satellite imagery classification mini-pipeline using preprocessing, feature extraction, and model evaluation.",
+        tags: ["ai", "data", "web"],
+        link: "#",
+        call: "Open Notebook",
+        thumb: "🛰️"
       },
       {
-        title: 'Arduino Smart Sensor',
-        desc: 'Tinkercad circuit + code for reading temperature & light, streaming to a simple web dashboard.',
-        tags: ['hw','web'],
-        link: '#',
-        call: 'View Circuit',
-        thumb: '🔌'
+        title: "Arduino Smart Sensor",
+        desc: "Tinkercad circuit plus Arduino code for temperature and light sensing with dashboard output.",
+        tags: ["hw", "web"],
+        link: "#",
+        call: "View Circuit",
+        thumb: "🔌"
       },
       {
-        title: 'Air Quality Explorer',
-        desc: 'Colab + JS map visualizing PM2.5 trends with interactive charts and tooltips.',
-        tags: ['data','web','ai'],
-        link: '#',
-        call: 'Launch Demo',
-        thumb: '🌫️'
+        title: "Air Quality Explorer",
+        desc: "Colab and JavaScript map for visualizing PM2.5 trends with interactive charts and tooltips.",
+        tags: ["data", "web", "ai"],
+        link: "#",
+        call: "Launch Demo",
+        thumb: "🌫️"
       },
       {
-        title: 'Micro‑blog Engine',
-        desc: 'Static site blog with Markdown posts, tags, and search — deployable on GitHub Pages.',
-        tags: ['web'],
-        link: '#',
-        call: 'Read Posts',
-        thumb: '📝'
+        title: "Micro-blog Engine",
+        desc: "Static blog system with Markdown posts, tags, search, and GitHub Pages deployment.",
+        tags: ["web"],
+        link: "#",
+        call: "Read Posts",
+        thumb: "📝"
       },
       {
-        title: 'Explainable KNN',
-        desc: 'Interactive KNN visualizer for classification regions and nearest neighbor inspection.',
-        tags: ['ai','data'],
-        link: '#',
-        call: 'Try KNN',
-        thumb: '📊'
+        title: "Explainable KNN",
+        desc: "Interactive KNN visualizer showing classification regions and nearest-neighbor inspection.",
+        tags: ["ai", "data"],
+        link: "#",
+        call: "Try KNN",
+        thumb: "📊"
       },
       {
-        title: 'Sensor Logger App',
-        desc: 'PWA that logs accelerometer & gyroscope data for quick experiments and CSV export.',
-        tags: ['web','data'],
-        link: '#',
-        call: 'Open App',
-        thumb: '📱'
+        title: "Sensor Logger App",
+        desc: "PWA that logs accelerometer and gyroscope data for experiments and CSV export.",
+        tags: ["web", "data"],
+        link: "#",
+        call: "Open App",
+        thumb: "📱"
       }
     ];
 
-    const grid = document.getElementById('projectsGrid');
-    function render(list){
-      grid.innerHTML = '';
-      list.forEach(p => {
-        const el = document.createElement('article');
-        el.className = 'proj fade-in';
+    const root = document.documentElement;
+    const nav = document.getElementById("siteNav");
+    const themeBtn = document.getElementById("themeToggle");
+    const nameEl = document.getElementById("name");
+    const profileImageEl = document.getElementById("profileImage");
+    const linksGrid = document.getElementById("linksGrid");
+    const yearEl = document.getElementById("year");
+    const grid = document.getElementById("projectsGrid");
+    const chips = Array.from(document.querySelectorAll(".chip"));
+    const tw = document.getElementById("typewriter");
+
+    function initializeTheme() {
+      const savedTheme = localStorage.getItem("theme");
+      const preferredLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+      const theme = savedTheme || (preferredLight ? "light" : "dark");
+      root.setAttribute("data-theme", theme);
+    }
+
+    function toggleTheme() {
+      const current = root.getAttribute("data-theme");
+      const next = current === "light" ? "dark" : "light";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    }
+
+    function updateNavbarOnScroll() {
+      if (window.scrollY > 8) {
+        nav.classList.add("scrolled");
+      } else {
+        nav.classList.remove("scrolled");
+      }
+    }
+
+    function applySiteConfig() {
+      nameEl.textContent = siteConfig.name;
+      profileImageEl.src = siteConfig.profileImage;
+      profileImageEl.alt = `Profile photo of ${siteConfig.name}`;
+
+      const updatedLinks = siteConfig.links.map((item) => {
+        if (item.title === "Email") {
+          return {
+            ...item,
+            href: `mailto:${siteConfig.email}`,
+            subtitle: siteConfig.email
+          };
+        }
+        return item;
+      });
+
+      linksGrid.innerHTML = updatedLinks
+        .map((item) => {
+          if (item.href) {
+            const isExternal =
+              item.href.startsWith("http://") ||
+              item.href.startsWith("https://") ||
+              item.href.startsWith("mailto:");
+            return `
+              <a class="link-card" href="${item.href}" ${isExternal ? 'target="_blank" rel="noopener"' : ""}>
+                <strong>${item.title}</strong>
+                <div class="mini">${item.subtitle}</div>
+              </a>
+            `;
+          }
+
+          return `
+            <div class="link-card" aria-disabled="true">
+              <strong>${item.title}</strong>
+              <div class="mini">${item.subtitle}</div>
+            </div>
+          `;
+        })
+        .join("");
+    }
+
+    function makeProjectButton(project) {
+      const hasRealLink = project.link && project.link !== "#";
+
+      if (!hasRealLink) {
+        return `
+          <span class="btn btn-disabled" aria-disabled="true" title="Add a real project link here">
+            ${project.call} →
+          </span>
+        `;
+      }
+
+      return `
+        <a class="btn" href="${project.link}" target="_blank" rel="noopener">
+          ${project.call} →
+        </a>
+      `;
+    }
+
+    function renderProjects(list) {
+      grid.innerHTML = "";
+
+      if (!list.length) {
+        grid.innerHTML = `
+          <div class="card" style="grid-column: 1 / -1;">
+            <strong>No projects found.</strong>
+            <div class="mini">Try another filter or add more work samples.</div>
+          </div>
+        `;
+        return;
+      }
+
+      list.forEach((project, index) => {
+        const el = document.createElement("article");
+        el.className = "proj fade-in";
+        el.style.animationDelay = `${index * 0.05}s`;
+
         el.innerHTML = `
-          <div class="thumb" aria-hidden="true" style="font-size:40px">${p.thumb}</div>
+          <div class="thumb" aria-hidden="true">${project.thumb}</div>
           <div class="proj-body">
-            <h3 style="margin:0 0 6px; font-size:18px">${p.title}</h3>
-            <p style="margin:0 0 10px; color:var(--muted)">${p.desc}</p>
-            <div class="tags">${p.tags.map(t=>`<span class="tag">#${t}</span>`).join('')}</div>
-            <a class="btn" href="${p.link}" target="_blank" rel="noopener">${p.call} →</a>
-          </div>`;
+            <h3>${project.title}</h3>
+            <p>${project.desc}</p>
+            <div class="tags">
+              ${project.tags.map((tag) => `<span class="tag">#${tag}</span>`).join("")}
+            </div>
+            ${makeProjectButton(project)}
+          </div>
+        `;
+
         grid.appendChild(el);
       });
     }
-    render(projects);
 
-    // Filters
-    const chips = Array.from(document.querySelectorAll('.chip'));
-    chips.forEach(ch => ch.addEventListener('click', () => {
-      chips.forEach(c=>c.classList.remove('active')); ch.classList.add('active');
-      const f = ch.dataset.filter;
-      if(f === 'all') return render(projects);
-      render(projects.filter(p => p.tags.includes(f)));
-    }));
+    function setActiveFilter(button) {
+      chips.forEach((chip) => {
+        chip.classList.remove("active");
+        chip.setAttribute("aria-selected", "false");
+      });
+
+      button.classList.add("active");
+      button.setAttribute("aria-selected", "true");
+
+      const filter = button.dataset.filter;
+      if (filter === "all") {
+        renderProjects(projects);
+        return;
+      }
+
+      renderProjects(projects.filter((project) => project.tags.includes(filter)));
+    }
+
+    function initializeFilters() {
+      chips.forEach((chip) => {
+        chip.addEventListener("click", () => setActiveFilter(chip));
+      });
+    }
+
+    function initializeTypewriter() {
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const phrases = [
+        "useful things with code",
+        "Arduino prototypes that blink & think",
+        "ML models that explain themselves",
+        "web apps that feel fast",
+        "data stories that matter"
+      ];
+
+      if (prefersReducedMotion) {
+        tw.textContent = phrases[0];
+        return;
+      }
+
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+
+      function tick() {
+        const phrase = phrases[phraseIndex];
+
+        if (!deleting) {
+          charIndex++;
+          tw.textContent = phrase.slice(0, charIndex);
+
+          if (charIndex === phrase.length) {
+            deleting = true;
+            setTimeout(tick, 1200);
+            return;
+          }
+
+          setTimeout(tick, 80);
+        } else {
+          charIndex--;
+          tw.textContent = phrase.slice(0, charIndex);
+
+          if (charIndex === 0) {
+            deleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+          }
+
+          setTimeout(tick, 45);
+        }
+      }
+
+      tick();
+    }
+
+    initializeTheme();
+    applySiteConfig();
+    renderProjects(projects);
+    initializeFilters();
+    initializeTypewriter();
+    updateNavbarOnScroll();
+
+    yearEl.textContent = new Date().getFullYear();
+
+    themeBtn.addEventListener("click", toggleTheme);
+    window.addEventListener("scroll", updateNavbarOnScroll, { passive: true });
   </script>
 </body>
 </html>
-
-
-
