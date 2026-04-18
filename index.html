@@ -1,105 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Tomas Sandoval</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Tomas Sandoval | Engineering Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0b0f;
-      color: white;
-      line-height: 1.6;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0c10;
+  color: white;
+  line-height: 1.6;
+}
 
-    header {
-      padding: 40px 20px;
-      text-align: center;
-      border-bottom: 1px solid #222;
-    }
+header {
+  text-align: center;
+  padding: 60px 20px 30px;
+  border-bottom: 1px solid #222;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 36px;
-    }
+header h1 {
+  font-size: 40px;
+  margin: 0;
+}
 
-    header p {
-      color: #aaa;
-      margin-top: 10px;
-    }
+header p {
+  color: #aaa;
+  margin-top: 10px;
+}
 
-    nav {
-      margin-top: 15px;
-    }
+.profile-box {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
 
-    nav a {
-      margin: 0 12px;
-      color: #aaa;
-      text-decoration: none;
-    }
+.profile {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #222;
+  border: 2px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 12px;
+}
 
-    nav a:hover {
-      color: white;
-    }
+nav {
+  margin-top: 20px;
+}
 
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
+nav a {
+  margin: 0 12px;
+  color: #aaa;
+  text-decoration: none;
+}
 
-    h2 {
-      border-bottom: 1px solid #222;
-      padding-bottom: 8px;
-      margin-bottom: 20px;
-    }
+nav a:hover {
+  color: white;
+}
 
-    .card {
-      background: #141420;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      border: 1px solid #222;
-    }
+section {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
 
-    .card h3 {
-      margin-top: 0;
-    }
+h2 {
+  border-bottom: 1px solid #222;
+  padding-bottom: 8px;
+}
 
-    .tags {
-      font-size: 12px;
-      color: #888;
-      margin-top: 8px;
-    }
+.card {
+  background: #12131a;
+  padding: 18px;
+  margin: 15px 0;
+  border-radius: 12px;
+  border: 1px solid #222;
+}
 
-    .courses span {
-      display: inline-block;
-      background: #1a1a25;
-      border: 1px solid #333;
-      padding: 6px 10px;
-      margin: 5px;
-      border-radius: 8px;
-      font-size: 12px;
-      color: #ccc;
-    }
+.card h3 {
+  margin-top: 0;
+  color: #fff;
+}
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      border-top: 1px solid #222;
-      color: #666;
-      font-size: 12px;
-    }
-  </style>
+.tags {
+  font-size: 12px;
+  color: #888;
+  margin-top: 8px;
+}
+
+.highlight {
+  color: #c61a1a;
+  font-weight: bold;
+}
+
+.courses span {
+  display: inline-block;
+  padding: 6px 10px;
+  margin: 5px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  font-size: 12px;
+  color: #ccc;
+  background: #141420;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+  border-top: 1px solid #222;
+  font-size: 12px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
   <h1>Tomas Sandoval</h1>
-  <p>Engineering • AI • Innovation</p>
+  <p>Engineering • AI • Innovation • Research</p>
+
+  <div class="profile-box">
+    <div class="profile">
+      Add Photo
+    </div>
+  </div>
 
   <nav>
     <a href="#about">About</a>
@@ -109,73 +139,77 @@
 </header>
 
 <section id="about">
-  <h2>About Me</h2>
-  <p>
-    I am a student passionate about engineering, mathematics, and artificial intelligence.  
-    I enjoy building real-world systems that combine hardware, data, and software to solve meaningful problems.
-  </p>
+<h2>About Me</h2>
 
-  <p>
-    My work focuses on creating engineering solutions such as sensor-based systems, environmental models, 
-    and AI-driven applications. I enjoy learning through hands-on projects and experimentation.
-  </p>
+<p>
+I am a student at Colegio Rosa-Bell passionate about <span class="highlight">engineering, mathematics, and artificial intelligence</span>. 
+I enjoy building systems that connect hardware, data, and software to solve real-world problems.
+</p>
+
+<p>
+My work focuses on designing and developing engineering solutions such as multi-sensor systems, environmental prediction models, and AI-based tools. 
+I enjoy working on projects that combine creativity with technical depth and real-world impact.
+</p>
+
+<p>
+I have experience in <span class="highlight">research, embedded systems, machine learning, and data analysis</span>, and I am constantly building projects that challenge me to think beyond the classroom.
+</p>
 </section>
 
 <section id="projects">
-  <h2>Projects</h2>
+<h2>Projects</h2>
 
-  <div class="card">
-    <h3>C-OPTICS: Multi-Sensor Lie Detection System</h3>
-    <p>
-      Built a wearable system using eye tracking, thermal imaging, ECG, and EEG sensors to detect stress and deception.
-      Processed real-time data using embedded systems and analyzed behavioral signals.
-    </p>
-    <div class="tags">AI • Embedded Systems • Sensors • Data Analysis</div>
-  </div>
+<div class="card">
+<h3>C-OPTICS: Multi-Sensor Deception Detection System</h3>
+<p>
+Designed a wearable system combining eye tracking, thermal imaging, ECG, and EEG sensors to analyze stress and behavioral signals in real time.
+</p>
+<div class="tags">AI • Embedded Systems • Sensors • Data Analysis</div>
+</div>
 
-  <div class="card">
-    <h3>Dew Point Prediction System</h3>
-    <p>
-      Developed a drone-based data collection system to improve weather prediction using mathematical modeling 
-      and atmospheric data analysis.
-    </p>
-    <div class="tags">Data Science • AI • Engineering</div>
-  </div>
+<div class="card">
+<h3>Dew Point Prediction System</h3>
+<p>
+Developed a drone-based atmospheric data collection system to improve weather prediction using mathematical modeling and sensor data analysis.
+</p>
+<div class="tags">AI • Data Science • Engineering</div>
+</div>
 
-  <div class="card">
-    <h3>Rainwater Collection System</h3>
-    <p>
-      Designed a gravity-powered system to collect and purify water for low-cost environmental solutions.
-    </p>
-    <div class="tags">Mechanical Engineering • Sustainability</div>
-  </div>
+<div class="card">
+<h3>Rainwater Collection System</h3>
+<p>
+Built a gravity-powered system to collect and purify water for sustainable and low-cost environmental solutions.
+</p>
+<div class="tags">Mechanical Engineering • Sustainability</div>
+</div>
 
-  <div class="card">
-    <h3>Python Interactive App</h3>
-    <p>
-      Built a Python-based application with real-time user input and dynamic output logic.
-    </p>
-    <div class="tags">Python • Software Development</div>
-  </div>
+<div class="card">
+<h3>Python Interactive Application</h3>
+<p>
+Created a Python-based application with real-time input processing and dynamic output logic.
+</p>
+<div class="tags">Python • Software Development</div>
+</div>
 
 </section>
 
 <section id="courses">
-  <h2>Courses</h2>
+<h2>Courses</h2>
 
-  <div class="courses">
-    <span>Algebra I</span>
-    <span>Algebra II</span>
-    <span>Geometry</span>
-    <span>Engineering</span>
-    <span>STEAM</span>
-    <span>Artificial Intelligence</span>
-    <span>Personal Finance</span>
-  </div>
+<div class="courses">
+<span>Algebra I</span>
+<span>Algebra II</span>
+<span>Geometry</span>
+<span>Engineering</span>
+<span>STEAM</span>
+<span>Artificial Intelligence</span>
+<span>Personal Finance</span>
+</div>
+
 </section>
 
 <footer>
-  © Tomas Sandoval • Personal Engineering Portfolio
+© Tomas Sandoval • Engineering & AI Portfolio
 </footer>
 
 </body>
